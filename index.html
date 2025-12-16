@@ -16,6 +16,7 @@
       property="og:description"
       content="企業向け日本語教育＆生活サポート講師を募集。『教える』から『定着をサポートする』プロフェッショナルへ。"
     />
+    <meta property="og:image" content="./sample_html.jpg" />
 
     <style>
       :root {
@@ -121,8 +122,16 @@
         height: 170px;
         border-radius: 18px;
         border: 1px solid rgba(0, 51, 102, 0.18);
-        background: linear-gradient(135deg, rgba(0, 51, 102, 0.92), rgba(0, 51, 102, 0.55));
         margin: 0 auto 16px;
+        overflow: hidden;
+        background: #0b2b5b;
+      }
+
+      .hero-visual img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
 
       .badge {
@@ -457,7 +466,9 @@
               class="hero-visual"
               role="img"
               aria-label="ファーストビュー画像（差し替え用プレースホルダー）"
-            ></div>
+            >
+              <img src="./sample_html.jpg" alt="LPサンプル画像" />
+            </div>
             <span class="badge">コンセプト：未来のプロフェッショナルへ</span>
             <h1>
               【企業の未来と、あなたの専門性をつなぐ】<br />
