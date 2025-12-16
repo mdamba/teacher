@@ -20,6 +20,16 @@
     <style>
       :root {
         color-scheme: light;
+
+        --navy: #003366;
+        --navy-2: #0b2b5b;
+        --accent: #ff6600;
+        --bg: #f5f7fb;
+        --paper: #ffffff;
+        --text: #0f172a;
+        --muted: #475569;
+        --border: #d9e2ef;
+        --shadow: 0 10px 24px rgba(0, 27, 66, 0.08);
       }
 
       * {
@@ -32,8 +42,12 @@
           "Segoe UI", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic",
           Meiryo, Arial, "Apple Color Emoji", "Segoe UI Emoji";
         line-height: 1.6;
-        color: #111827;
-        background: #ffffff;
+        color: var(--text);
+        background: var(--bg);
+      }
+
+      main {
+        padding-bottom: 84px;
       }
 
       a {
@@ -53,7 +67,7 @@
         top: 0;
         background: rgba(255, 255, 255, 0.92);
         backdrop-filter: blur(8px);
-        border-bottom: 1px solid #e5e7eb;
+        border-bottom: 1px solid var(--border);
         z-index: 10;
       }
 
@@ -69,6 +83,7 @@
         font-weight: 700;
         font-size: 14px;
         letter-spacing: 0.02em;
+        color: var(--navy);
       }
 
       .nav a {
@@ -81,7 +96,7 @@
         flex-wrap: wrap;
         justify-content: flex-end;
         font-size: 13px;
-        color: #374151;
+        color: var(--muted);
       }
 
       .nav-links a:hover {
@@ -90,16 +105,17 @@
 
       .hero {
         padding: 56px 0 28px;
+        text-align: center;
       }
 
       .badge {
         display: inline-block;
         padding: 6px 10px;
-        border: 1px solid #e5e7eb;
+        border: 1px solid rgba(0, 51, 102, 0.25);
         border-radius: 999px;
         font-size: 12px;
-        color: #374151;
-        background: #f9fafb;
+        color: var(--navy);
+        background: rgba(0, 51, 102, 0.06);
       }
 
       h1 {
@@ -107,11 +123,12 @@
         font-size: 28px;
         line-height: 1.25;
         letter-spacing: -0.01em;
+        color: var(--navy);
       }
 
       .lead {
         margin: 0 0 18px;
-        color: #374151;
+        color: var(--muted);
         font-size: 16px;
       }
 
@@ -126,34 +143,70 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        padding: 10px 14px;
-        border-radius: 10px;
-        border: 1px solid #111827;
+        padding: 11px 16px;
+        border-radius: 12px;
+        border: 1px solid transparent;
         text-decoration: none;
         font-weight: 600;
         font-size: 14px;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+      }
+
+      .btn-lg {
+        width: 100%;
+        padding: 13px 18px;
+        font-size: 15px;
+        border-radius: 14px;
       }
 
       .btn-primary {
-        background: #111827;
+        background: var(--accent);
         color: #ffffff;
+      }
+
+      .btn-primary:hover {
+        filter: brightness(0.96);
       }
 
       .btn-secondary {
         background: #ffffff;
-        color: #111827;
-        border-color: #e5e7eb;
+        color: var(--navy);
+        border-color: var(--border);
+        box-shadow: none;
       }
 
       section {
-        padding: 28px 0;
-        border-top: 1px solid #f3f4f6;
+        padding: 26px 0;
+      }
+
+      .section-surface {
+        background: var(--paper);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 18px;
+        box-shadow: var(--shadow);
       }
 
       h2 {
         margin: 0 0 12px;
         font-size: 18px;
         letter-spacing: -0.01em;
+        color: var(--navy);
+      }
+
+      .section-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .section-title::before {
+        content: "";
+        display: inline-block;
+        width: 6px;
+        height: 18px;
+        border-radius: 999px;
+        background: var(--accent);
       }
 
       p {
@@ -168,10 +221,49 @@
 
       .card {
         grid-column: span 12;
-        border: 1px solid #e5e7eb;
-        border-radius: 14px;
+        border: 1px solid var(--border);
+        border-radius: 16px;
         padding: 14px;
         background: #ffffff;
+        box-shadow: 0 10px 22px rgba(0, 27, 66, 0.06);
+      }
+
+      .card-head {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 6px;
+      }
+
+      .icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 12px;
+        background: rgba(0, 51, 102, 0.08);
+        border: 1px solid rgba(0, 51, 102, 0.18);
+        flex: 0 0 auto;
+      }
+
+      .icon svg {
+        width: 18px;
+        height: 18px;
+        stroke: var(--navy);
+      }
+
+      .num-pill {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 12px;
+        background: var(--accent);
+        color: #ffffff;
+        font-weight: 800;
+        flex: 0 0 auto;
       }
 
       .card h3 {
@@ -189,8 +281,53 @@
       }
 
       .muted {
-        color: #6b7280;
+        color: #64748b;
         font-size: 13px;
+      }
+
+      .flow {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        align-items: center;
+      }
+
+      .flow-arrow {
+        display: none;
+        text-align: center;
+        color: var(--accent);
+        font-weight: 900;
+        font-size: 18px;
+      }
+
+      .table {
+        width: 100%;
+        border-collapse: collapse;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        overflow: hidden;
+        background: #ffffff;
+      }
+
+      .table th,
+      .table td {
+        padding: 10px 12px;
+        border-bottom: 1px solid var(--border);
+        vertical-align: top;
+        font-size: 14px;
+      }
+
+      .table th {
+        width: 30%;
+        background: #f3f6fb;
+        color: var(--navy);
+        text-align: left;
+        font-weight: 700;
+      }
+
+      .table tr:last-child th,
+      .table tr:last-child td {
+        border-bottom: none;
       }
 
       .faq dt {
@@ -204,10 +341,28 @@
       }
 
       footer {
-        border-top: 1px solid #e5e7eb;
+        border-top: 1px solid rgba(0, 0, 0, 0.06);
         padding: 22px 0 40px;
-        color: #6b7280;
+        color: #64748b;
         font-size: 12px;
+      }
+
+      .sticky-cta {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 10px 0;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(10px);
+        border-top: 1px solid var(--border);
+        z-index: 20;
+      }
+
+      .sticky-cta__inner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       @media (min-width: 720px) {
@@ -229,6 +384,24 @@
 
         .span-4 {
           grid-column: span 4;
+        }
+
+        .section-surface {
+          padding: 22px;
+        }
+
+        .flow {
+          grid-template-columns: 1fr auto 1fr;
+          gap: 14px;
+        }
+
+        .flow-arrow {
+          display: block;
+        }
+
+        .btn-lg {
+          width: auto;
+          min-width: 360px;
         }
       }
     </style>
@@ -262,8 +435,8 @@
           <p class="lead">
             「教える」から「定着をサポートする」プロフェッショナルへ。企業内研修で専門スキルを活かしませんか？
           </p>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="#apply">まずはカジュアル面談</a>
+          <div class="cta-row" style="justify-content: center">
+            <a class="btn btn-primary" href="#apply">講師登録・面談エントリーへ</a>
             <a class="btn btn-secondary" href="#faq">よくある質問を見る</a>
           </div>
           <p class="muted" style="margin-top: 10px">
@@ -274,24 +447,47 @@
 
       <section id="mission">
         <div class="container">
-          <h2>課題とミッション：今、企業が求める日本語教師の新しいカタチ</h2>
-          <div class="grid">
-            <div class="card span-6">
-              <h3>現状の課題</h3>
-              <ul>
-                <li>外国人従業員の日本語力不足</li>
-                <li>生活面での孤立</li>
-                <li>それらが就労定着を妨げる</li>
-              </ul>
-            </div>
-            <div class="card span-6">
-              <h3>私たちのミッション</h3>
-              <p>
-                日本語教育と生活支援を組み合わせ、企業と働く人の双方にとって「安心して続く」環境づくりを支援します。
-              </p>
-              <p class="muted">
-                ここは事業の背景や想いを簡潔に入れる場所です。
-              </p>
+          <div class="section-surface">
+            <h2 class="section-title">課題とミッション：今、企業が求める日本語教師の新しいカタチ</h2>
+            <div class="flow">
+              <div class="card">
+                <div class="card-head">
+                  <span class="icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                      <path d="M4 7h10" />
+                      <path d="M4 12h10" />
+                      <path d="M4 17h7" />
+                      <path d="M16 4h4v16h-4" />
+                    </svg>
+                  </span>
+                  <h3 style="margin: 0">企業が抱える課題</h3>
+                </div>
+                <ul>
+                  <li>外国人従業員の日本語力不足</li>
+                  <li>生活面での孤立</li>
+                  <li>それらが就労定着を妨げる</li>
+                </ul>
+              </div>
+
+              <div class="flow-arrow" aria-hidden="true">→</div>
+
+              <div class="card">
+                <div class="card-head">
+                  <span class="icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                      <path d="M12 2l7 4v6c0 5-3 9-7 10C8 21 5 17 5 12V6l7-4z" />
+                      <path d="M9 12l2 2 4-5" />
+                    </svg>
+                  </span>
+                  <h3 style="margin: 0">私たちのミッション</h3>
+                </div>
+                <p>
+                  日本語教育と生活支援を組み合わせ、企業と働く人の双方にとって「安心して続く」環境づくりを支援します。
+                </p>
+                <p class="muted">
+                  例：研修の成果だけでなく、生活面の不安解消まで一気通貫で伴走します。
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -299,23 +495,43 @@
 
       <section id="service">
         <div class="container">
-          <h2>当社の事業紹介：企業の成長と定着率を支えるワンストップ・サポート</h2>
-          <div class="grid">
-            <div class="card span-6">
-              <h3>教育事業</h3>
-              <p>業種に特化した実践的な日本語教育を提供します。</p>
-              <ul>
-                <li>現場で使う表現・用語に対応</li>
-                <li>学習進捗の可視化とフォロー</li>
-              </ul>
-            </div>
-            <div class="card span-6">
-              <h3>生活支援事業</h3>
-              <p>ビザ、行政、地域との連携までトータルで支援します。</p>
-              <ul>
-                <li>生活の困りごとの相談窓口</li>
-                <li>各種手続きの伴走サポート</li>
-              </ul>
+          <div class="section-surface">
+            <h2 class="section-title">事業紹介：企業の成長と定着率を支えるワンストップ・サポート</h2>
+            <div class="grid">
+              <div class="card span-6">
+                <div class="card-head">
+                  <span class="icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                      <path d="M4 19.5V6.5A2.5 2.5 0 0 1 6.5 4H20v15H6.5A2.5 2.5 0 0 0 4 21.5" />
+                      <path d="M8 7h8" />
+                      <path d="M8 11h8" />
+                    </svg>
+                  </span>
+                  <h3 style="margin: 0">教育事業</h3>
+                </div>
+                <p>業種に特化した実践的な日本語教育を提供します。</p>
+                <ul>
+                  <li>現場で使う表現・用語に対応</li>
+                  <li>学習進捗の可視化とフォロー</li>
+                </ul>
+              </div>
+              <div class="card span-6">
+                <div class="card-head">
+                  <span class="icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                      <path d="M3 10.5L12 3l9 7.5" />
+                      <path d="M5 10v11h14V10" />
+                      <path d="M9 21v-7h6v7" />
+                    </svg>
+                  </span>
+                  <h3 style="margin: 0">生活支援事業</h3>
+                </div>
+                <p>ビザ、行政、地域との連携までトータルで支援します。</p>
+                <ul>
+                  <li>生活の困りごとの相談窓口</li>
+                  <li>各種手続きの伴走サポート</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
